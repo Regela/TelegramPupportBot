@@ -24,7 +24,7 @@ func SupportSendHandler(rnd render.Render,session *session.Session,r *http.Reque
 	//
 	//fmt.Println(req)
 
-	bot.SendMessage(r.FormValue("message")+"\n"+r.FormValue("first_name")+" "+r.FormValue("last_name") +" ("+r.FormValue("tel")+")",settings.ChannelId())
+	bot.SendMessage(r.FormValue("message")+"\n"+r.FormValue("first_name")+" "+r.FormValue("last_name") +" ("+r.FormValue("tel")+")\nBrowser: "+r.UserAgent() +" IP:"+ r.RemoteAddr,settings.ChannelId())
 
 	rnd.HTML(200, "success", nil)
 }
